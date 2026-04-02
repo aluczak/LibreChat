@@ -13,24 +13,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - target: api-build
-            file: Dockerfile.multi
-            image_name: librechat-dev-api
-          - target: node
-            file: Dockerfile
-            image_name: librechat-dev
 
     steps:
       # Check out the repository
       - name: Checkout
         uses: actions/checkout@v4
-
-      # Set up QEMU
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
 
       # Set up Docker Buildx
       - name: Set up Docker Buildx
@@ -49,15 +36,15 @@ jobs:
         run: |
           cp .env.example .env
 
-      # Build and push Docker images for each target
-      - name: Build and push Docker images
+      # Build and push Docker image
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ${{ matrix.file }}
+          file: Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/${{ matrix.image_name }}:${{ github.sha }}
-            ghcr.io/${{ github.repository_owner }}/${{ matrix.image_name }}:latest
-          platforms: linux/amd64,linux/arm64
-          target: ${{ matrix.target }}
+            ghcr.io/${{ github.repository_owner }}/librechat-dev:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/librechat-dev:latest
+          platforms: linux/amd64
+          target: node

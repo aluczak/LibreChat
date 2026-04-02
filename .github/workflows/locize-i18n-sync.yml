@@ -8,6 +8,7 @@ on:
 
 jobs:
   sync-translations:
+    if: false
     name: Sync Translation Keys with Locize
     runs-on: ubuntu-latest
     steps:
