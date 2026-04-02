@@ -13,7 +13,6 @@ on:
 
 jobs:
   eslint_checks:
-    if: false
     name: Run ESLint Linting
     runs-on: ubuntu-latest
     permissions:

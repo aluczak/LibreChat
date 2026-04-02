@@ -16,7 +16,6 @@ on:
 
 jobs:
   detect-unused-i18n-keys:
-    if: false
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write

@@ -16,7 +16,6 @@ env:
 
 jobs:
   build:
-    if: false
     name: Build packages
     runs-on: ubuntu-latest
     timeout-minutes: 15

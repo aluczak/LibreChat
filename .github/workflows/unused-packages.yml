@@ -12,7 +12,6 @@ on:
 
 jobs:
   detect-unused-packages:
-    if: false
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write

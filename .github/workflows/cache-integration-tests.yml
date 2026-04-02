@@ -17,7 +17,6 @@ on:
 
 jobs:
   cache_integration_tests:
-    if: false
     name: Integration Tests that use actual Redis Cache
     timeout-minutes: 30
     runs-on: ubuntu-latest
