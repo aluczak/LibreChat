@@ -1,0 +1,36 @@
+version: 1.3.6
+
+cache: true
+
+interface:
+  customWelcome: 'Welcome to LibreChat! Enjoy your experience.'
+  privacyPolicy:
+    externalUrl: 'https://librechat.ai/privacy-policy'
+    openNewTab: true
+  termsOfService:
+    externalUrl: 'https://librechat.ai/tos'
+    openNewTab: true
+  prompts:
+    share: false
+    public: false
+  agents:
+    share: false
+    public: false
+  marketplace:
+    use: false
+
+registration:
+  socialLogins: ['openid']
+
+endpoints:
+  azureOpenAI:
+    titleConvo: true
+    titleModel: "gpt-4o"
+    groups:
+      - group: "ai-playground"
+        apiKey: "${AZURE_OPENAI_API_KEY}"
+        instanceName: "${AZURE_OPENAI_INSTANCE_NAME}"
+        version: "2024-12-01-preview"
+        models:
+          gpt-4o:
+            deploymentName: "${AZURE_OPENAI_DEPLOYMENT_NAME}"
